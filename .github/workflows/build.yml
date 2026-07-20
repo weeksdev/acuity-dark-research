@@ -23,3 +23,35 @@ jobs:
         with:
           name: acuity-dark-research-vsix
           path: '*.vsix'
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Download VSIX
+        uses: actions/download-artifact@v4
+        with:
+          name: acuity-dark-research-vsix
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: 'main-latest'
+          release_name: 'Main branch latest release'
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: '*.vsix'
+          asset_name: 'acuity-dark-research-latest.vsix'
+          asset_content_type: 'application/octet-stream'
