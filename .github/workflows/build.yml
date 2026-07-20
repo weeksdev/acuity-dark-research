@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,22 +39,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: acuity-dark-research-vsix
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Delete old main-latest tag and release
+        run: |
+          gh release delete "main-latest" --yes --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          git push origin --delete refs/tags/main-latest 2>/dev/null || true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: 'main-latest'
-          release_name: 'Main branch latest release'
+          name: 'Main branch latest build'
+          body: 'Latest VSIX build from the main branch.'
           draft: false
           prerelease: false
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: '*.vsix'
-          asset_name: 'acuity-dark-research-latest.vsix'
-          asset_content_type: 'application/octet-stream'
+          files: '*.vsix'
