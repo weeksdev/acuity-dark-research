@@ -1,0 +1,71 @@
+Acuity Dark contrast against editor background
+token	hex	contrast
+foreground	#CBD3D8	11.61:1
+comment	#8696A0	5.77:1
+amber	#D5A351	7.70:1
+teal	#4ACFB5	9.12:1
+green	#AECC8C	9.90:1
+magenta	#E3B8EC	10.34:1
+sky	#70AFE8	7.53:1
+coral	#F0A29A	8.67:1
+
+Selected workbench text/background contrast
+pair	contrast
+activity bar	12.25:1
+side bar	12.05:1
+title bar	12.25:1
+status bar	10.34:1
+input	10.38:1
+active tab	14.79:1
+inactive tab	5.92:1
+primary button	4.67:1
+secondary button	7.57:1
+active list item	8.51:1
+badge	7.13:1
+activity badge	9.63:1
+remote status	7.05:1
+warning status	6.47:1
+error status	7.97:1
+
+Representative theme canonical text/comment contrast
+theme	text	comment
+One Dark Pro	6.57:1	2.32:1
+Dracula	13.36:1	3.03:1
+Catppuccin Mocha	11.34:1	3.36:1
+Tokyo Night	8.10:1	2.76:1
+Gruvbox Dark	10.75:1	4.02:1
+Nord	9.25:1	2.43:1
+Solarized Dark	4.75:1	2.79:1
+GitHub Dark	12.26:1	6.15:1
+
+Minimum pairwise CIE76 distance among syntax accents
+normal	33.83	teal/green
+protanopia	11.42	magenta/sky
+deuteranopia	18.67	teal/magenta
+tritanopia	14.15	teal/sky
+
+Closest five pairs under each simulated viewing condition
+[normal]
+  teal       green      ΔE76=33.83
+  magenta    sky        ΔE76=34.12
+  amber      green      ΔE76=37.80
+  teal       sky        ΔE76=53.24
+  green      sky        ΔE76=66.24
+[protanopia]
+  magenta    sky        ΔE76=11.42
+  amber      green      ΔE76=20.43
+  teal       green      ΔE76=24.06
+  teal       magenta    ΔE76=31.41
+  teal       sky        ΔE76=41.00
+[deuteranopia]
+  teal       magenta    ΔE76=18.67
+  magenta    sky        ΔE76=22.93
+  amber      green      ΔE76=23.02
+  teal       green      ΔE76=28.85
+  teal       sky        ΔE76=36.62
+[tritanopia]
+  teal       sky        ΔE76=14.15
+  amber      magenta    ΔE76=23.89
+  green      magenta    ΔE76=25.92
+  green      sky        ΔE76=30.71
+  teal       green      ΔE76=36.59

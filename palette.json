@@ -1,0 +1,16 @@
+{
+  "background": "#17191D",
+  "surface": "#1D2025",
+  "surfaceRaised": "#24282E",
+  "border": "#343A42",
+  "foreground": "#CBD3D8",
+  "foregroundMuted": "#AEB7BD",
+  "comment": "#8696A0",
+  "amber": "#D5A351",
+  "teal": "#4ACFB5",
+  "green": "#AECC8C",
+  "sky": "#70AFE8",
+  "coral": "#F0A29A",
+  "selection": "#335C6B99",
+  "magenta": "#E3B8EC"
+}
