@@ -19,7 +19,7 @@ jobs:
       - name: Build VSIX
         run: npx vsce package
       - name: Upload VSIX
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: acuity-dark-research-vsix
           path: '*.vsix'
